@@ -101,27 +101,44 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 .claim-lines p.italic{font-family:var(--font-serif);font-style:italic;font-size:16px;color:var(--ecorce);opacity:0.85}
 
 .tag-bar{
-  display:flex;flex-wrap:wrap;
+  display:flex;flex-wrap:wrap;gap:2px;
   background:var(--royal-blue);
   margin-top:24px;
+  padding:2px;
 }
 .tag-bar span{
   font-family:var(--font-mono);font-weight:700;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;
-  color:var(--ecru);
-  padding:14px 18px;border-right:1px solid rgba(239,232,218,0.3);
+  color:var(--royal-blue);
+  background:var(--lagune);
+  flex:1;
+  text-align:center;
+  padding:14px 12px;
 }
-.tag-bar span:last-child{border-right:none}
 
-.marque-visual-placeholder{
-  margin-top:40px;
-  aspect-ratio:16/6;
-  border:1px dashed var(--ecru);
-  background:repeating-linear-gradient(135deg, rgba(239,232,218,0.06), rgba(239,232,218,0.06) 10px, transparent 10px, transparent 20px);
-  display:flex;align-items:center;justify-content:center;
+.marque-visual-col{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--ecru);
+  padding:32px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:320px;
 }
-.marque-visual-placeholder span{
-  font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--ecru);text-transform:uppercase;opacity:0.7;
+.marque-visual-placeholder-bg{
+  position:absolute;inset:0;z-index:0;
+  background:repeating-linear-gradient(135deg, rgba(239,232,218,0.08), rgba(239,232,218,0.08) 10px, transparent 10px, transparent 20px);
+  display:flex;align-items:flex-start;justify-content:flex-start;padding:16px;
 }
+.marque-visual-placeholder-bg span{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--ecru);text-transform:uppercase;opacity:0.6;
+}
+.marque-visual-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg, rgba(36,48,132,0) 30%, rgba(20,26,74,0.85) 100%);
+}
+.marque-visual-col .hero-logo-bar--left{position:relative;z-index:2;margin-bottom:16px}
+.marque-visual-col h2{position:relative;z-index:2}
 
 /* --------------------------------------------------------------------------
    Formulaire email
@@ -182,7 +199,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 }
 .intro-head{grid-area:head;align-self:end;padding-bottom:14px}
 .intro-body{grid-area:body}
-.intro-visual{grid-area:visual;border:1px solid var(--ecorce);overflow:hidden;height:100%;max-height:340px}
+.intro-visual{grid-area:visual;border:1px solid var(--ecorce);overflow:hidden;height:100%}
 .intro-visual img{width:100%;height:100%;object-fit:cover;display:block}
 
 .carousel{position:relative}
@@ -235,7 +252,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 .steps-list .step-label{font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.06em;display:block;margin-bottom:4px}
 .steps-list p{font-family:var(--font-sans);font-size:14px;margin:0}
 .gif-placeholder{
-  aspect-ratio:16/10;max-height:220px;border:1px dashed var(--cuivre);
+  aspect-ratio:16/10;max-height:280px;border:1px dashed var(--cuivre);
   background:repeating-linear-gradient(135deg, rgba(160,68,46,0.08), rgba(160,68,46,0.08) 10px, transparent 10px, transparent 20px);
   display:flex;align-items:flex-end;padding:16px;
 }
@@ -271,12 +288,12 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 .panel--precommande{
   background:var(--ecorce);
   color:var(--ecru);
-  padding:64px var(--section-pad-x);
+  padding:64px var(--section-pad-x) 0 var(--section-pad-x);
   position:relative;
   background-image:url('https://d3k81ch9hvuctc.cloudfront.net/company/SczpWt/images/aef8efd2-cc2c-4a14-a5aa-b05eccbe0d3a.png');
   background-size:cover;
   background-position:center bottom;
-  align-items:flex-start;
+  align-items:center;
 }
 .precommande-inner{
   position:relative;
@@ -285,6 +302,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   background:rgba(35,26,22,0.55);
   padding:44px 44px 40px 44px;
   max-width:560px;
+  margin-bottom:48px;
 }
 .precommande-inner h3{font-family:var(--font-serif);font-weight:400;font-size:34px;letter-spacing:-0.05em;margin:0 0 10px 0}
 .precommande-inner p{font-size:14px;margin:0;opacity:0.9}
@@ -399,15 +417,13 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   #utilisation .steps-grid{grid-template-columns:1fr;gap:24px}
   .gif-placeholder--order-first{order:-1}
   .tag-bar{flex-direction:column}
-  .tag-bar span{border-right:none;border-bottom:1px solid rgba(239,232,218,0.3)}
-  .tag-bar span:last-child{border-bottom:none}
 
   .marque-grid{grid-template-columns:1fr;gap:32px}
   .marque-grid h2{font-size:30px}
 
   .precommande-inner h3{font-size:26px}
-  .precommande-inner{padding:26px 22px 24px 22px;margin:0 -4px}
-  .panel--precommande{padding:40px var(--section-pad-x-mobile)}
+  .precommande-inner{padding:26px 22px 24px 22px;margin:0 -4px 32px -4px}
+  .panel--precommande{padding:40px var(--section-pad-x-mobile) 0 var(--section-pad-x-mobile)}
   .site-footer{padding:24px var(--section-pad-x-mobile)}
 
   /* Barre sticky : plus compacte pour ne pas couper la lecture */
