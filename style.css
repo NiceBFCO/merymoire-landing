@@ -124,13 +124,9 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   justify-content:flex-start;
   height:100%;
 }
-.marque-visual-placeholder-bg{
+.marque-visual-img{
   position:absolute;inset:0;z-index:0;
-  background:repeating-linear-gradient(135deg, rgba(239,232,218,0.08), rgba(239,232,218,0.08) 10px, transparent 10px, transparent 20px);
-  display:flex;align-items:flex-end;justify-content:flex-start;padding:16px;
-}
-.marque-visual-placeholder-bg span{
-  font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--ecru);text-transform:uppercase;opacity:0.6;
+  width:100%;height:100%;object-fit:cover;
 }
 .marque-visual-scrim{
   position:absolute;inset:0;z-index:1;
