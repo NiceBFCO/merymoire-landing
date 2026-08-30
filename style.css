@@ -127,31 +127,27 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:17px;line-height:
    Formulaire email
    -------------------------------------------------------------------------- */
 .email-form{display:flex;gap:0;max-width:480px;margin:20px 0 14px 0;flex-wrap:wrap}
-.email-form input[type="email"]{flex:1 1 240px;padding:18px 20px;border:1px solid currentColor;background:transparent;color:inherit;font-family:var(--font-sans);font-size:14px;border-radius:2px 0 0 2px}
+.email-form input[type="email"]{flex:1 1 240px;padding:18px 24px;border:1px solid currentColor;background:transparent;color:inherit;font-family:var(--font-sans);font-size:14px;border-radius:999px 0 0 999px}
 .email-form input[type="email"]::placeholder{color:currentColor;opacity:0.6}
-.btn-primary{padding:18px 30px;background:var(--ambre);color:var(--royal-blue);border:none;font-family:var(--font-sans);font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:0 2px 2px 0;white-space:nowrap}
+.btn-primary{padding:18px 30px;background:var(--ambre);color:var(--royal-blue);border:none;font-family:var(--font-sans);font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:0 999px 999px 0;white-space:nowrap}
 .btn-primary:hover{background:#f5e07c}
 .form-note{opacity:0.9}
 .form-status{font-family:var(--font-sans);font-size:12px;margin-top:10px;min-height:16px}
 
-/* Formulaire empilé (hero + CTA final), fidèle à la maquette : champ plein largeur, bouton plein largeur en dessous */
-.email-form--stacked{flex-direction:column;max-width:480px}
+/* Formulaire empilé (hero + CTA final), fidèle à la maquette : deux pilules pleines, l'une sous l'autre */
+.email-form--stacked{flex-direction:column;max-width:480px;gap:14px}
 .email-form--stacked input[type="email"]{
-  flex:none;width:100%;border-radius:0;
+  flex:none;width:100%;border-radius:999px;
 }
 .email-form--stacked .btn-primary{
-  border-radius:0;width:100%;text-align:center;
+  border-radius:999px;width:100%;text-align:center;
 }
 
 /* --------------------------------------------------------------------------
-   Hero (section 1) — media (image+texte overlay) + bloc bas séparé
+   Hero (section 1) — une seule couche : image en fond, tout le texte
+   posé dessus en flux normal (structure volontairement simple et robuste)
    -------------------------------------------------------------------------- */
-.panel--hero{padding:0;overflow:hidden;color:var(--ecru);display:flex;flex-direction:column;justify-content:flex-start}
-
-.hero-logo-bar{position:absolute;top:36px;left:0;right:0;display:flex;justify-content:center;z-index:3}
-.hero-logo-bar img{height:18px;width:auto;filter:brightness(0) invert(1)}
-.hero-logo-bar--left{position:static;justify-content:flex-start;margin-bottom:20px}
-.hero-logo-bar--left img{filter:none}
+.panel--hero{padding:0;overflow:hidden;color:var(--ecru);display:flex;flex-direction:column;justify-content:center}
 
 .hero-media{position:absolute;inset:0;z-index:0}
 .hero-bg{width:100%;height:100%;object-fit:cover;object-position:left center}
@@ -159,18 +155,20 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:17px;line-height:
   position:absolute;inset:0;
   background:linear-gradient(90deg, rgba(36,48,132,0.6) 0%, rgba(36,48,132,0.2) 45%, rgba(36,48,132,0) 65%);
 }
-.hero-text{
+
+.hero-logo-bar{position:absolute;top:32px;left:0;right:0;display:flex;justify-content:center;z-index:2}
+.hero-logo-bar img{height:18px;width:auto;filter:brightness(0) invert(1)}
+.hero-logo-bar--left{position:static;justify-content:flex-start;margin-bottom:20px}
+.hero-logo-bar--left img{filter:none}
+
+.hero-copy{
   position:relative;z-index:1;
   max-width:560px;
-  padding:120px var(--section-pad-x) 0 var(--section-pad-x);
+  padding:110px var(--section-pad-x) 56px var(--section-pad-x);
 }
-
-.hero-bottom{
-  position:relative;z-index:1;
-  max-width:480px;
-  padding:28px var(--section-pad-x) 64px var(--section-pad-x);
-  margin-top:auto;
-}
+.hero-order-swap{display:flex;flex-direction:column}
+.hero-order-swap .hero-highlight{order:1}
+.hero-order-swap .body-text{order:2}
 
 /* --------------------------------------------------------------------------
    Section 2 — Comprendre le produit
@@ -352,21 +350,25 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:17px;line-height:
   .panel--auto{padding-top:64px;padding-bottom:64px}
   .panel--compact{padding-top:40px;padding-bottom:28px}
 
-  /* HERO mobile : bloc image (hauteur fixe) + bloc formulaire séparé en dessous, pas de superposition globale */
-  .panel--hero{min-height:calc(100vh - 30px);display:block}
-  .hero-logo-bar{position:absolute;top:16px}
-  .hero-media{position:relative;inset:auto;height:56vh}
-  .hero-bg{position:absolute;inset:0;object-position:65% 22%}
-  .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(36,48,132,0.05) 30%, rgba(36,48,132,0.92) 100%)}
-  .hero-text{
-    position:absolute;left:0;right:0;bottom:0;z-index:1;
-    max-width:none;padding:0 var(--section-pad-x-mobile) 22px var(--section-pad-x-mobile);
+  /* HERO mobile : structure unifiée (comme desktop), condensée pour tenir sur un écran */
+  .panel--hero{justify-content:flex-end;padding-bottom:0}
+  .hero-logo-bar{top:20px}
+  .hero-bg{object-position:65% 20%}
+  .hero-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.05) 25%, rgba(36,48,132,0.9) 78%)}
+  .hero-copy{
+    max-width:none;
+    padding:0 var(--section-pad-x-mobile) 22px var(--section-pad-x-mobile);
   }
-  .hero-bottom{
-    position:static;background:var(--royal-blue);max-width:none;
-    padding:24px var(--section-pad-x-mobile) 32px var(--section-pad-x-mobile);
-    margin-top:0;
-  }
+  .hero-copy .eyebrow{margin-bottom:10px;font-size:11px}
+  .hero-copy h1.title,.hero-copy .title-h1{margin-bottom:10px;font-size:30px}
+  .hero-copy .body-text{margin-bottom:8px;font-size:15px}
+  .hero-highlight{margin-bottom:8px;font-size:15px}
+  .hero-copy .badge{margin-top:10px;margin-bottom:10px}
+  .hero-copy .eyebrow--small{margin-top:10px}
+  .hero-copy .email-form{margin:12px 0 8px 0}
+  /* Sur mobile : "pour les cheveux texturés" repasse après "dans la légèreté d'un sérum" */
+  .hero-order-swap .hero-highlight{order:2}
+  .hero-order-swap .body-text{order:1}
   h1.title,.title-h1{font-size:34px}
   .eyebrow{font-size:12px;letter-spacing:0.2em}
 
