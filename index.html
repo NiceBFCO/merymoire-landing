@@ -42,7 +42,7 @@
   <!-- 1 — HERO -->
   <section id="hero" class="panel panel--hero" aria-label="Le Concentré">
     <div class="hero-media">
-      <img class="hero-bg" src="https://d3k81ch9hvuctc.cloudfront.net/company/SczpWt/images/9a179ec0-25f9-4e59-81c4-29e8d4f97dad.png" alt="Le Concentré — sérum capillaire bi-phase MERY/MOIRE, appliqué sur cheveux texturés" width="1200" height="1500">
+      <img class="hero-bg" src="https://d3k81ch9hvuctc.cloudfront.net/company/SczpWt/images/9a179ec0-25f9-4e59-81c4-29e8d4f97dad.png" alt="Le Concentré — sérum capillaire bi-phase MERY/MOIRE, appliqué sur cheveux texturés" width="1920" height="1080">
       <div class="hero-scrim" aria-hidden="true"></div>
     </div>
 
@@ -53,7 +53,7 @@
     <div class="hero-copy">
       <div class="eyebrow">Le Concentré ·<br>Soin sans rinçage bi-phase</div>
       <h1 class="title-h1">L'essentiel,<br>concentré.</h1>
-      <p class="body-text">Le soin d'un leave-in.<br class="br-mobile"> La richesse d'une huile.<br> Dans la légèreté d'un sérum.<br class="br-mobile"> <span class="hero-highlight-inline">Pour les cheveux texturés.</span></p>
+      <p class="body-text">Le soin d'un leave-in.<br class="br-mobile"> La richesse d'une huile.<br> Dans la légèreté d'un sérum.<br> <span class="hero-highlight-inline">Pour les cheveux texturés.</span></p>
 
       <span class="badge badge--ecru-fill">HYDRATATION · NUTRITION · FORCE</span>
       <p class="form-note eyebrow eyebrow--small">Précommandes en octobre.<br> Soyez parmi les premières informées.</p>
@@ -262,7 +262,7 @@
   </section>
 
   <!-- 6 — LA MARQUE -->
-  <section id="marque" class="panel panel--blue" aria-label="La marque">
+  <section id="marque" class="panel panel--blue panel--compact" aria-label="La marque">
     <div class="marque-grid">
       <!-- Visuel à intégrer en arrière-plan de cette colonne (logo + titre viendront se superposer dessus) -->
       <div class="marque-visual-col">
@@ -282,17 +282,19 @@
     </div>
   </section>
 
-  <!-- 7 — CTA FINAL + FOOTER (section distincte) -->
+  <!-- 7 — CTA FINAL + FOOTER (section distincte, en bandeau ~1/3 d'écran) -->
   <section id="precommande" class="panel panel--precommande" aria-label="Précommandes">
-    <div class="precommande-center">
-      <div class="precommande-inner">
-        <h3>Le Concentré <br class="br-mobile">arrive en octobre.</h3>
-        <p>Soyez parmi les premières informées de l'ouverture des précommandes.</p>
-        <form class="email-form email-form--stacked" data-email-form="bottom">
-          <input type="email" name="email" placeholder="Votre adresse email" required aria-label="Votre adresse email">
-          <button type="submit" class="btn-primary">Me prévenir à l'ouverture</button>
-        </form>
-        <p class="form-status" data-form-status role="status"></p>
+    <div class="precommande-band">
+      <div class="precommande-center">
+        <div class="precommande-inner">
+          <h3>Le Concentré <br class="br-mobile">arrive en octobre.</h3>
+          <p>Soyez parmi les premières informées de l'ouverture des précommandes.</p>
+          <form class="email-form email-form--stacked" data-email-form="bottom">
+            <input type="email" name="email" placeholder="Votre adresse email" required aria-label="Votre adresse email">
+            <button type="submit" class="btn-primary">Me prévenir à l'ouverture</button>
+          </form>
+          <p class="form-status" data-form-status role="status"></p>
+        </div>
       </div>
     </div>
 
@@ -301,11 +303,15 @@
         <div class="logo-mark">MERY/MOIRE</div>
       </div>
       <nav>
-        <a href="https://www.instagram.com/mery.moire" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@mery.moire" target="_blank" rel="noopener">TikTok</a>
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="#" data-cookie-settings>Gestion des cookies</a>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/mery.moire" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@mery.moire" target="_blank" rel="noopener">TikTok</a>
+        </div>
+        <div class="footer-legal">
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-confidentialite.html">Politique de confidentialité</a>
+          <a href="#" data-cookie-settings>Gestion des cookies</a>
+        </div>
       </nav>
       <small>&copy; 2026 Beauty Fusion &amp; Co</small>
     </footer>
