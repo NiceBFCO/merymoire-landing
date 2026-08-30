@@ -122,7 +122,10 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  height:100%;
+  aspect-ratio:3/4;
+  height:auto;
+  max-height:62vh;
+  margin:0 auto;
 }
 .marque-visual-img{
   position:absolute;inset:0;z-index:0;
