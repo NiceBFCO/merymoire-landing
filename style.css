@@ -298,15 +298,11 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   align-items:center;
   justify-content:center;
   padding:36px var(--section-pad-x);
-  background-image:url('https://d3k81ch9hvuctc.cloudfront.net/company/SczpWt/images/aef8efd2-cc2c-4a14-a5aa-b05eccbe0d3a.png');
+  background-image:url('https://d3k81ch9hvuctc.cloudfront.net/company/SczpWt/images/6e96ab60-ca04-4204-a5d1-a195fee6e3ed.png');
   background-size:cover;
   background-position:center;
 }
-.precommande-band::before{
-  content:"";
-  position:absolute;inset:0;
-  background:rgba(35,26,22,0.35);
-}
+/* Pas de voile global sur l'image — seul l'encart a son propre fond sombre pour la lisibilité du texte */
 .precommande-center{
   width:100%;
   display:flex;
@@ -394,22 +390,22 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .panel--auto{padding-top:64px;padding-bottom:64px;min-height:calc(100vh - 30px)}
   .panel--compact{padding-top:40px;padding-bottom:28px;min-height:calc(100vh - 30px)}
 
-  /* HERO mobile : structure unifiée (comme desktop), condensée et calée en bas.
-     Le texte reste sur ~72% de la largeur pour laisser le flacon visible à droite, sans texte dessus. */
+  /* HERO mobile : plus large pour que chaque ligne tienne sans casser,
+     recadrage décalé pour garder le flacon visible sur la droite. */
   .panel--hero{justify-content:flex-end;padding-bottom:0}
   .hero-logo-bar{top:14px}
   .hero-logo-bar img{height:15px}
-  .hero-bg{object-position:58% 50%}
-  .hero-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.05) 48%, rgba(36,48,132,0.92) 85%)}
+  .hero-bg{object-position:40% 50%}
+  .hero-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.05) 40%, rgba(36,48,132,0.94) 82%)}
   .hero-copy{
-    max-width:72%;
+    max-width:84%;
     padding:0 var(--section-pad-x-mobile) 20px var(--section-pad-x-mobile);
   }
-  .hero-copy .eyebrow{margin-bottom:10px;font-size:12px;letter-spacing:0.16em;line-height:1.4}
+  .hero-copy .eyebrow{margin-bottom:10px;font-size:12px;letter-spacing:0.06em;line-height:1.4;white-space:nowrap}
   .hero-copy h1.title,.hero-copy .title-h1{margin-bottom:10px;font-size:36px;line-height:1.05}
-  .hero-copy .body-text{margin-bottom:4px;font-size:16px;line-height:1.3}
+  .hero-copy .body-text{margin-bottom:4px;font-size:16px;line-height:1.3;white-space:nowrap}
   .hero-copy .badge{margin-top:10px;margin-bottom:10px;font-size:12px;padding:10px 16px}
-  .hero-copy .eyebrow--small{margin-top:10px;font-size:12px;letter-spacing:0.1em}
+  .hero-copy .eyebrow--small{margin-top:10px;font-size:11px;letter-spacing:0.02em;white-space:nowrap}
   .hero-copy .email-form{margin:12px 0 6px 0;gap:8px}
   .hero-copy .email-form input[type="email"]{padding:13px 18px;font-size:14px}
   .hero-copy .btn-primary{padding:13px 18px;font-size:12px}
@@ -449,12 +445,12 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .site-footer nav{flex-direction:column;align-items:flex-start;gap:8px}
   .footer-social,.footer-legal{width:100%}
 
-  /* Barre sticky : plus compacte pour ne pas couper la lecture */
+  /* Barre sticky : texte court sur une ligne, bouton aligné proprement */
   .sticky-cta{
-    padding:10px 40px 10px 16px;
-    flex-direction:row;align-items:center;gap:10px;
+    padding:12px 40px 12px 16px;
+    flex-direction:row;align-items:center;justify-content:space-between;gap:12px;
   }
-  .sticky-cta p{font-size:9px;line-height:1.3}
-  .sticky-cta .btn-primary{padding:9px 14px;font-size:10px;white-space:nowrap}
+  .sticky-cta p{font-size:10px;line-height:1;white-space:nowrap}
+  .sticky-cta .btn-primary{padding:10px 16px;font-size:10px;white-space:nowrap;flex-shrink:0}
   .sticky-cta__close{display:block}
 }
