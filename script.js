@@ -163,7 +163,11 @@
     btn.addEventListener("click", function () {
       var target = document.getElementById(btn.getAttribute("data-scroll-to"));
       if (target) target.scrollIntoView({ behavior: "smooth" });
-      trackEvent("click_sticky_cta");
+      // Le sticky n'a pas son propre champ email : on trace le clic,
+      // et on retient que la prochaine inscription (via le formulaire de bas
+      // de page vers lequel il renvoie) doit être attribuée à "sticky".
+      trackEvent("click_signup_sticky");
+      sessionStorage.setItem("mm_cta_attribution", "sticky");
     });
   });
 
@@ -195,26 +199,67 @@
   }
 
   /* ============================================================
-     4. Formulaires email — à brancher sur Klaviyo (liste précommande)
+     4. Formulaires email → Klaviyo (liste précommande) + GA4
      ============================================================ */
+  var KLAVIYO_LIST_ID = "VB6dKy";
+  var KLAVIYO_PUBLIC_API_KEY = "SczpWt";
+
+  function subscribeToKlaviyo(email, source) {
+    return fetch(
+      "https://a.klaviyo.com/client/subscriptions/?company_id=" + KLAVIYO_PUBLIC_API_KEY,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          revision: "2024-10-15"
+        },
+        body: JSON.stringify({
+          data: {
+            type: "subscription",
+            attributes: {
+              profile: {
+                data: {
+                  type: "profile",
+                  attributes: {
+                    email: email,
+                    properties: { source: source } // ex : "hero" / "sticky" / "footer"
+                  }
+                }
+              }
+            },
+            relationships: {
+              list: { data: { type: "list", id: KLAVIYO_LIST_ID } }
+            }
+          }
+        })
+      }
+    );
+  }
+
   document.querySelectorAll("[data-email-form]").forEach(function (form) {
-    var location = form.getAttribute("data-email-form"); // "hero" ou "bottom"
+    var defaultSource = form.getAttribute("data-email-form"); // "hero" ou "footer"
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var status = form.querySelector("[data-form-status]");
       var input = form.querySelector("input[type=email]");
       if (!input || !input.value) return;
 
-      trackEvent("click_signup_" + location);
+      // Si on arrive ici après un clic sur le sticky, l'inscription lui est attribuée
+      var attributedSource = sessionStorage.getItem("mm_cta_attribution") || defaultSource;
 
-      // TODO : remplacer par l'appel API Klaviyo (liste précommande)
-      // fetch("https://a.klaviyo.com/...", { method: "POST", body: ... })
+      trackEvent("click_signup_" + defaultSource);
 
-      if (status) {
-        status.textContent = "Merci, vous serez prévenue à l'ouverture des précommandes.";
-      }
-      trackEvent("signup_complete", { signup_location: location });
-      form.reset();
+      subscribeToKlaviyo(input.value, attributedSource)
+        .then(function (res) {
+          if (!res.ok) throw new Error("Klaviyo subscription failed");
+          if (status) status.textContent = "Merci, vous serez prévenue à l'ouverture des précommandes.";
+          trackEvent("signup_complete", { location: attributedSource });
+          sessionStorage.removeItem("mm_cta_attribution");
+          form.reset();
+        })
+        .catch(function () {
+          if (status) status.textContent = "Une erreur est survenue, merci de réessayer.";
+        });
     });
   });
 
@@ -233,6 +278,7 @@
      ============================================================ */
   var legalLink = document.querySelector('a[href="mentions-legales.html"]');
   if (legalLink) legalLink.addEventListener("click", function () { trackEvent("click_mentions_legales"); });
-  var privacyLink = document.querySelector('a[href="politique-confidentialite.html"]');
-  if (privacyLink) privacyLink.addEventListener("click", function () { trackEvent("click_politique_confidentialite"); });
+  document.querySelectorAll('a[href="politique-confidentialite.html"]').forEach(function (link) {
+    link.addEventListener("click", function () { trackEvent("click_politique_confidentialite"); });
+  });
 })();
