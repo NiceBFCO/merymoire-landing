@@ -35,6 +35,7 @@ a{color:inherit}
 button{font-family:inherit;cursor:pointer}
 
 .br-mobile{display:none}
+.br-desktop{display:inline}
 
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important}
@@ -113,30 +114,6 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   display:flex;align-items:center;justify-content:center;text-align:center;
   padding:14px 12px;
 }
-
-.marque-visual-col{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--ecru);
-  padding:32px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  aspect-ratio:3/4;
-  height:auto;
-  max-height:62vh;
-  margin:0 auto;
-}
-.marque-visual-img{
-  position:absolute;inset:0;z-index:0;
-  width:100%;height:100%;object-fit:cover;
-}
-.marque-visual-scrim{
-  position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg, rgba(20,26,74,0.85) 0%, rgba(36,48,132,0) 45%);
-}
-.marque-visual-col .hero-logo-bar--left{position:relative;top:auto;left:auto;right:auto;z-index:2;margin-bottom:16px}
-.marque-visual-col h2{position:relative;z-index:2}
 
 /* --------------------------------------------------------------------------
    Formulaire email
@@ -273,14 +250,17 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 .verbatim-card blockquote{font-family:var(--font-serif);font-size:18px;line-height:1.5;margin:0}
 
 /* --------------------------------------------------------------------------
-   Section 6 — La marque
+   Section 6 — La marque : même patron que le hero (photo plein fond,
+   copy posée dessus)
    -------------------------------------------------------------------------- */
-.marque-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.marque-grid h2{font-family:var(--font-serif);font-weight:400;font-size:44px;letter-spacing:-0.1em;line-height:1.15;margin:0}
+.panel--marque{padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.marque-scrim{background:linear-gradient(180deg, rgba(20,26,74,0) 35%, rgba(20,26,74,0.92) 80%)}
+.marque-copy{position:relative;z-index:1;max-width:620px;padding:110px var(--section-pad-x) 56px var(--section-pad-x)}
+.marque-copy h2{font-family:var(--font-serif);font-weight:400;font-size:44px;letter-spacing:-0.1em;line-height:1.15;margin:0 0 18px 0}
 .tagline-italic{font-family:var(--font-serif);font-style:italic;font-size:22px;line-height:1.4;margin:0 0 18px 0}
 .tagline-italic--bold{font-weight:600}
-.marque-grid .body-text{max-width:none}
-.closing-line{font-family:var(--font-sans);font-weight:700;font-size:15px;letter-spacing:0.04em;margin-top:18px}
+.marque-copy .body-text{max-width:none}
+.marque-closing-badge{margin-top:18px}
 
 /* --------------------------------------------------------------------------
    Section 7 — CTA final + footer (section distincte)
@@ -428,6 +408,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 @media (max-width:900px){
   :root{--section-pad-x:22px}
   .br-mobile{display:inline}
+  .br-desktop{display:none}
 
   .panel{padding:48px var(--section-pad-x-mobile)}
   .panel--auto{padding-top:64px;padding-bottom:64px;min-height:calc(100vh - 30px)}
@@ -476,10 +457,11 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .gif-placeholder--order-first{order:-1}
   .tag-bar{flex-direction:column}
 
-  .marque-grid{grid-template-columns:1fr;gap:32px}
-  #marque{justify-content:flex-start}
-  .marque-visual-col{height:auto;aspect-ratio:16/9}
-  .marque-grid h2{font-size:25px}
+  .panel--marque{justify-content:flex-end}
+  .marque-copy{padding:48px 18px 32px 18px;max-width:100%}
+  .marque-closing-badge{font-size:11px;padding:10px 14px;white-space:normal}
+  .marque-copy h2{font-size:25px}
+  .marque-scrim{background:linear-gradient(180deg, rgba(20,26,74,0.05) 30%, rgba(20,26,74,0.94) 70%)}
 
   .precommande-inner h3{font-size:19px;white-space:nowrap}
   .precommande-inner{padding:20px 20px}
