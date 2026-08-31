@@ -436,8 +436,9 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .tag-bar{flex-direction:column}
 
   .marque-grid{grid-template-columns:1fr;gap:32px}
+  #marque{justify-content:flex-start}
   .marque-visual-col{height:auto;aspect-ratio:16/9}
-  .marque-grid h2{font-size:30px}
+  .marque-grid h2{font-size:25px}
 
   .precommande-inner h3{font-size:19px;white-space:nowrap}
   .precommande-inner{padding:20px 20px}
