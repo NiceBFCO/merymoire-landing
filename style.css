@@ -86,7 +86,7 @@ h1.title, .title-h1{
 .title-h1--cuivre{color:var(--cuivre)}
 .title-h1--oneline{white-space:nowrap;font-size:clamp(22px, 4.2vw, 56px)}
 .hero-intro{font-family:var(--font-sans);font-size:16px;line-height:1.55;margin:0 0 18px 0;max-width:480px}
-.hero-simplicity-note{font-family:var(--font-sans);font-size:14px;line-height:1.5;margin:8px 0 0 0;opacity:0.85}
+.hero-simplicity-note{font-family:var(--font-sans);font-size:16px;line-height:1.5;margin:6px 0 0 0}
 
 p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:1.65;margin:0 0 18px 0;max-width:560px}
 .body-text strong{font-weight:700}
@@ -100,7 +100,9 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 
 .claim-lines{margin:16px 0 14px 0}
 .claim-lines p{margin:0 0 6px 0}
+.claim-lines--conclusion{margin:28px 0 0 0}
 .claim-strong{font-family:var(--font-serif);font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-0.02em;color:var(--ecorce)}
+.claim-strong--conclusion{font-weight:400;font-size:17px;opacity:0.75}
 .claim-highlight{color:var(--cuivre)}
 .claim-lines p.italic{font-family:var(--font-serif);font-style:italic;font-size:16px;color:var(--ecorce);opacity:0.85}
 
@@ -160,11 +162,15 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 
 .hero-copy{
   position:relative;z-index:1;
-  max-width:560px;
+  max-width:720px;
   padding:110px var(--section-pad-x) 56px var(--section-pad-x);
 }
 .hero-highlight-inline{color:var(--ambre);font-weight:700}
-.hero-copy .badge{margin-right:10px}
+.hero-copy .badge{margin-right:10px;margin-bottom:4px}
+.hero-copy .hero-intro,
+.hero-copy .body-text,
+.hero-copy .form-note,
+.hero-copy .consent-note{white-space:nowrap;max-width:none}
 
 /* --------------------------------------------------------------------------
    Section 2 — Comprendre le produit
@@ -233,8 +239,8 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 .steps-list .step-label{font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.06em;display:block;margin-bottom:4px}
 .steps-list p{font-family:var(--font-sans);font-size:14px;margin:0}
 .gif-visual{
-  width:100%;aspect-ratio:9/16;max-height:520px;object-fit:cover;
-  border-radius:4px;display:block;
+  display:block;width:auto;max-width:100%;height:460px;aspect-ratio:9/16;
+  object-fit:cover;border-radius:4px;margin:0 auto;
 }
 
 /* --------------------------------------------------------------------------
@@ -424,7 +430,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .panel--hero{justify-content:flex-start;padding-bottom:0}
   .hero-logo-bar{top:10px}
   .hero-logo-bar img{height:14px}
-  .hero-bg{object-position:65% 50%}
+  .hero-bg{object-position:78% 45%}
   .hero-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.05) 30%, rgba(36,48,132,0.94) 78%)}
   .hero-copy{
     max-width:100%;
@@ -433,12 +439,13 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .hero-copy .eyebrow{margin-bottom:12px;font-size:12px;letter-spacing:0.05em;line-height:1.5;white-space:nowrap}
   .hero-copy h1.title,.hero-copy .title-h1{margin-bottom:14px;font-size:44px;line-height:1.15}
   .hero-copy .title-h1--oneline{font-size:clamp(22px, 8vw, 44px)}
-  .hero-copy .hero-intro{font-size:15px;margin-bottom:14px}
+  .hero-copy .hero-intro{font-size:15px;margin-bottom:14px;white-space:normal}
   .hero-copy .body-text{margin-bottom:6px;font-size:17px;line-height:1.6;white-space:nowrap}
   .hero-copy .badge{margin-top:14px;margin-bottom:0;font-size:12px;padding:12px 16px;white-space:nowrap}
-  .hero-copy .hero-simplicity-note{font-size:13px;margin-top:8px}
+  .hero-copy .hero-simplicity-note{font-size:16px;margin-top:4px}
   .hero-copy .eyebrow--small{margin-top:14px;font-size:12px;letter-spacing:0.02em;line-height:1.5;white-space:nowrap}
   .hero-copy .email-form{margin:14px 0 8px 0;gap:10px}
+  .hero-copy .consent-note{white-space:normal}
   .hero-copy .email-form input[type="email"]{padding:14px 18px;font-size:14px}
   .hero-copy .btn-primary{padding:14px 18px;font-size:12px}
   h1.title,.title-h1{font-size:34px}
@@ -462,8 +469,10 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .stat{border-right:none;border-bottom:1px solid rgba(239,232,218,0.3);padding:0 0 24px 0}
 
   #utilisation .steps-grid{grid-template-columns:1fr;gap:24px}
+  .gif-visual{height:230px}
   .gif-placeholder--order-first{order:-1}
-  .tag-bar{flex-direction:column}
+  .tag-bar{flex-direction:row}
+  .tag-bar span{flex:1 1 45%;font-size:9px;padding:8px 4px}
 
   .panel--marque{padding:32px var(--section-pad-x-mobile)}
   .marque-copy{max-width:100%}
