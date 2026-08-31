@@ -100,7 +100,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 
 .claim-lines{margin:16px 0 14px 0}
 .claim-lines p{margin:0 0 6px 0}
-.claim-lines--conclusion{margin:28px 0 0 0}
+.claim-lines--conclusion{margin:10px 0 0 0}
 .claim-strong{font-family:var(--font-serif);font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-0.02em;color:var(--ecorce)}
 .claim-strong--conclusion{font-weight:400;font-size:17px;opacity:0.75}
 .claim-highlight{color:var(--cuivre)}
@@ -423,14 +423,14 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 
   .panel{padding:48px var(--section-pad-x-mobile)}
   .panel--auto{padding-top:64px;padding-bottom:64px;min-height:calc(100dvh - 30px)}
-  .panel--compact{padding-top:40px;padding-bottom:28px;min-height:calc(100dvh - 30px)}
+  .panel--compact{padding-top:24px;padding-bottom:16px;min-height:calc(100dvh - 30px)}
 
   /* HERO mobile : contenu ancré juste sous le logo (plus de trou en haut),
      tailles remontées pour occuper l'espace disponible. */
   .panel--hero{justify-content:flex-start;padding-bottom:0}
   .hero-logo-bar{top:10px}
   .hero-logo-bar img{height:14px}
-  .hero-bg{object-position:78% 45%}
+  .hero-bg{object-position:58% 50%;transform:scale(1.15);transform-origin:58% 50%}
   .hero-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.05) 30%, rgba(36,48,132,0.94) 78%)}
   .hero-copy{
     max-width:100%;
@@ -453,7 +453,12 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 
   #produit .intro-grid{grid-template-columns:1fr;grid-template-areas:"head" "visual" "body";row-gap:24px}
   .intro-head{align-self:auto;padding-bottom:0}
-  .intro-visual{aspect-ratio:4/3;height:auto}
+  .intro-visual{aspect-ratio:2/1;height:auto}
+  #produit .body-text{margin-bottom:8px;line-height:1.45}
+  #produit .eyebrow{margin-bottom:6px}
+  #produit h1{margin-bottom:6px}
+  #produit .badge--royal{margin-top:2px}
+  #produit .claim-lines--conclusion{margin-top:6px}
   .complex-card{flex:0 0 100%}
 
   /* Complexes : simple empilement (3 cartes, pas besoin de swipe) */
@@ -468,11 +473,14 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   #preuve .stats-grid{grid-template-columns:1fr;gap:28px}
   .stat{border-right:none;border-bottom:1px solid rgba(239,232,218,0.3);padding:0 0 24px 0}
 
-  #utilisation .steps-grid{grid-template-columns:1fr;gap:24px}
-  .gif-visual{height:230px}
+  #utilisation .steps-grid{grid-template-columns:1fr;gap:14px;margin-top:10px}
+  #utilisation .eyebrow{margin-bottom:8px}
+  #utilisation h1{margin-bottom:8px}
+  .steps-list li{padding:6px 0}
+  .gif-visual{height:150px}
   .gif-placeholder--order-first{order:-1}
-  .tag-bar{flex-direction:row}
-  .tag-bar span{flex:1 1 45%;font-size:9px;padding:8px 4px}
+  .tag-bar{flex-direction:row;margin-top:12px}
+  .tag-bar span{flex:1 1 45%;font-size:9px;padding:6px 4px}
 
   .panel--marque{padding:32px var(--section-pad-x-mobile)}
   .marque-copy{max-width:100%}
