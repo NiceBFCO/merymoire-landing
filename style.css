@@ -250,17 +250,20 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 .verbatim-card blockquote{font-family:var(--font-serif);font-size:18px;line-height:1.5;margin:0}
 
 /* --------------------------------------------------------------------------
-   Section 6 — La marque : même patron que le hero (photo plein fond,
-   copy posée dessus)
+   Section 6 — La marque : photo plein fond, tout le contenu centré et
+   groupé (logo + titre + texte) pour se lire comme un seul bloc
    -------------------------------------------------------------------------- */
-.panel--marque{padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-.marque-scrim{background:linear-gradient(180deg, rgba(20,26,74,0) 35%, rgba(20,26,74,0.92) 80%)}
-.marque-copy{position:relative;z-index:1;max-width:620px;padding:110px var(--section-pad-x) 56px var(--section-pad-x)}
+.panel--marque{padding:64px var(--section-pad-x);overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.marque-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.35) 0%, rgba(36,48,132,0.55) 50%, rgba(36,48,132,0.75) 100%)}
+.marque-copy{position:relative;z-index:1;max-width:640px;text-align:center}
+.marque-logo{margin-bottom:20px}
+.marque-logo img{height:22px;width:auto;filter:brightness(0) invert(1)}
 .marque-copy h2{font-family:var(--font-serif);font-weight:400;font-size:44px;letter-spacing:-0.1em;line-height:1.15;margin:0 0 18px 0}
 .tagline-italic{font-family:var(--font-serif);font-style:italic;font-size:22px;line-height:1.4;margin:0 0 18px 0}
 .tagline-italic--bold{font-weight:600}
-.marque-copy .body-text{max-width:none}
-.marque-closing-badge{margin-top:18px}
+.marque-copy .body-text{max-width:none;margin-left:auto;margin-right:auto}
+.marque-closing-badge{margin-top:6px}
+#marque .hero-bg{object-position:center 62%}
 
 /* --------------------------------------------------------------------------
    Section 7 — CTA final + footer (section distincte)
@@ -457,11 +460,15 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .gif-placeholder--order-first{order:-1}
   .tag-bar{flex-direction:column}
 
-  .panel--marque{justify-content:flex-end}
-  .marque-copy{padding:48px 18px 32px 18px;max-width:100%}
-  .marque-closing-badge{font-size:11px;padding:10px 14px;white-space:normal}
-  .marque-copy h2{font-size:25px}
-  .marque-scrim{background:linear-gradient(180deg, rgba(20,26,74,0.05) 30%, rgba(20,26,74,0.94) 70%)}
+  .panel--marque{padding:32px var(--section-pad-x-mobile)}
+  .marque-copy{max-width:100%}
+  .marque-logo{margin-bottom:14px}
+  .marque-logo img{height:16px}
+  .marque-copy h2{font-size:30px;margin-bottom:14px}
+  .tagline-italic{font-size:19px;margin-bottom:14px}
+  .marque-copy .body-text{font-size:15px;line-height:1.55;margin-bottom:14px}
+  .marque-closing-badge{font-size:11px;padding:10px 14px;white-space:normal;margin-top:4px}
+  .marque-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.4) 0%, rgba(36,48,132,0.6) 50%, rgba(36,48,132,0.8) 100%)}
 
   .precommande-inner h3{font-size:19px;white-space:nowrap}
   .precommande-inner{padding:20px 20px}
