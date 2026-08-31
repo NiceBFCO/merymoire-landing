@@ -361,6 +361,45 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 }
 
 /* --------------------------------------------------------------------------
+   Pop-in de confirmation d'inscription
+   -------------------------------------------------------------------------- */
+.signup-modal{
+  position:fixed;inset:0;z-index:70;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+.signup-modal[hidden]{display:none}
+.signup-modal__backdrop{
+  position:absolute;inset:0;
+  background:rgba(35,26,22,0.55);
+}
+.signup-modal__box{
+  position:relative;z-index:1;
+  background:var(--royal-blue);
+  color:var(--ecru);
+  border:1px solid var(--ecru);
+  max-width:420px;width:100%;
+  padding:40px 36px;
+  text-align:left;
+}
+.signup-modal__box h3{
+  font-family:var(--font-serif);font-weight:400;font-size:28px;
+  letter-spacing:-0.04em;margin:0 0 12px 0;
+}
+.signup-modal__box p{font-family:var(--font-sans);font-size:14px;line-height:1.6;margin:0;opacity:0.9}
+.signup-modal__close{
+  position:absolute;top:14px;right:14px;
+  background:transparent;border:none;color:var(--ecru);
+  font-size:20px;line-height:1;padding:8px;opacity:0.7;
+}
+.signup-modal__close:hover{opacity:1}
+
+@media (max-width:900px){
+  .signup-modal__box{padding:30px 26px}
+  .signup-modal__box h3{font-size:24px}
+}
+
+/* --------------------------------------------------------------------------
    Bandeau cookies
    -------------------------------------------------------------------------- */
 .cookie-banner{position:fixed;left:20px;right:20px;bottom:20px;max-width:560px;margin:0 auto;background:var(--ecru);border:1px solid var(--ecorce);padding:22px 24px;z-index:60;box-shadow:0 8px 30px rgba(0,0,0,0.18)}

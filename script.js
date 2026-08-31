@@ -199,6 +199,25 @@
   }
 
   /* ============================================================
+     4bis. Pop-in de confirmation après inscription
+     ============================================================ */
+  var signupModal = document.getElementById("signupModal");
+  function openSignupModal() {
+    if (!signupModal) return;
+    signupModal.hidden = false;
+  }
+  document.querySelectorAll("[data-modal-close]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (signupModal) signupModal.hidden = true;
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && signupModal && !signupModal.hidden) {
+      signupModal.hidden = true;
+    }
+  });
+
+  /* ============================================================
      4. Formulaires email → Klaviyo (liste précommande) + GA4
      ============================================================ */
   var KLAVIYO_LIST_ID = "VB6dKy";
@@ -256,6 +275,7 @@
           trackEvent("signup_complete", { location: attributedSource });
           sessionStorage.removeItem("mm_cta_attribution");
           form.reset();
+          openSignupModal();
         })
         .catch(function () {
           if (status) status.textContent = "Une erreur est survenue, merci de réessayer.";
