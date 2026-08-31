@@ -430,7 +430,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .panel--hero{justify-content:flex-start;padding-bottom:0}
   .hero-logo-bar{top:10px}
   .hero-logo-bar img{height:14px}
-  .hero-bg{object-position:58% 50%;transform:scale(1.15);transform-origin:58% 50%}
+  .hero-bg{object-position:42% 50%;transform:scale(1.3);transform-origin:42% 50%}
   .hero-scrim{background:linear-gradient(180deg, rgba(36,48,132,0.05) 30%, rgba(36,48,132,0.94) 78%)}
   .hero-copy{
     max-width:100%;
@@ -477,7 +477,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   #utilisation .eyebrow{margin-bottom:8px}
   #utilisation h1{margin-bottom:8px}
   .steps-list li{padding:6px 0}
-  .gif-visual{height:150px}
+  .gif-visual{height:195px}
   .gif-placeholder--order-first{order:-1}
   .tag-bar{flex-direction:row;margin-top:12px}
   .tag-bar span{flex:1 1 45%;font-size:9px;padding:6px 4px}
