@@ -84,8 +84,9 @@ h1.title, .title-h1{
   letter-spacing:-0.1em;line-height:1.12;font-size:56px;margin:0 0 24px 0;
 }
 .title-h1--cuivre{color:var(--cuivre)}
-.title-h1--oneline{white-space:nowrap;font-size:clamp(22px, 4.2vw, 56px)}
-.hero-intro{font-family:var(--font-sans);font-size:16px;line-height:1.55;margin:0 0 18px 0;max-width:480px}
+.title-h1--oneline{white-space:nowrap;font-size:clamp(22px, 3.8vw, 50px)}
+.hero-intro{font-family:var(--font-serif);font-weight:400;letter-spacing:-0.1em;font-size:20px;line-height:1.3;margin:0 0 28px 0;max-width:480px}
+.hero-tagline{margin-top:0}
 .hero-simplicity-note{font-family:var(--font-sans);font-size:16px;line-height:1.5;margin:6px 0 0 0}
 
 p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:1.65;margin:0 0 18px 0;max-width:560px}
@@ -167,10 +168,13 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 }
 .hero-highlight-inline{color:var(--ambre);font-weight:700}
 .hero-copy .badge{margin-right:10px;margin-bottom:4px}
+.hero-copy .title-h1{margin-bottom:6px}
 .hero-copy .hero-intro,
 .hero-copy .body-text,
 .hero-copy .form-note,
-.hero-copy .consent-note{white-space:nowrap;max-width:none}
+.hero-copy .consent-note,
+.hero-copy .eyebrow{white-space:nowrap;max-width:none}
+.hero-copy .email-form{max-width:528px}
 
 /* --------------------------------------------------------------------------
    Section 2 — Comprendre le produit
@@ -271,6 +275,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 .tagline-italic--bold{font-weight:600}
 .marque-copy .body-text{max-width:none;margin-left:auto;margin-right:auto;font-size:18px;margin-bottom:12px}
 .marque-closing-badge{margin-top:4px;font-size:14px;padding:12px 20px}
+.marque-line-nowrap{white-space:nowrap}
 #marque .hero-bg{object-position:center 62%}
 
 /* --------------------------------------------------------------------------
@@ -439,7 +444,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
   .hero-copy .eyebrow{margin-bottom:12px;font-size:12px;letter-spacing:0.05em;line-height:1.5;white-space:nowrap}
   .hero-copy h1.title,.hero-copy .title-h1{margin-bottom:14px;font-size:44px;line-height:1.15}
   .hero-copy .title-h1--oneline{font-size:clamp(22px, 8vw, 44px)}
-  .hero-copy .hero-intro{font-size:15px;margin-bottom:14px;white-space:normal}
+  .hero-copy .hero-intro{font-size:18px;margin-bottom:20px;white-space:normal}
   .hero-copy .body-text{margin-bottom:6px;font-size:17px;line-height:1.6;white-space:nowrap}
   .hero-copy .badge{margin-top:14px;margin-bottom:0;font-size:12px;padding:12px 16px;white-space:nowrap}
   .hero-copy .hero-simplicity-note{font-size:16px;margin-top:4px}
@@ -484,6 +489,7 @@ p.body-text, .body-text{font-family:var(--font-sans);font-size:16px;line-height:
 
   .panel--marque{padding:32px var(--section-pad-x-mobile)}
   .marque-copy{max-width:100%}
+  .marque-line-nowrap{white-space:normal}
   .marque-logo{margin-bottom:6px}
   .marque-logo img{height:16px}
   .marque-copy h2{font-size:30px;margin-bottom:14px}
